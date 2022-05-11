@@ -1,4 +1,4 @@
 Minimal REST server to send a WakeOnLan magic packet to a server.
 
 
-**DISCLOSURE** : this project is mainly a test bed to play with GitHub. Vrry minimal (but working)
+**DISCLOSURE** : this project is mainly a test bed to play with GitHub. Very minimal (but working)
