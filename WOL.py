@@ -41,7 +41,12 @@ def main():
 
 if __name__ == "__main__":
     l_Host = os.environ.get('WOL_HOST', C_WOL_HOST)
-    l_Port = int(os.environ.get('WOL_PORT', C_WOL_PORT)) # check if int should go here
+    l_Port = os.environ.get('WOL_PORT', C_WOL_PORT)
+
+    try:
+        l_Port = int(l_Port)
+    except ValueError:
+        print(f'''Error: {l_Port} is not a valid port number''')
 
     uvicorn.run("WOL:main", host=l_Host, port=l_Port, log_level="info")
 
