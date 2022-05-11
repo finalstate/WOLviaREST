@@ -1,9 +1,16 @@
 #! python3
 ####################################################################################################
 
+import os
+
 import fastapi
 import uvicorn
 import wakeonlan
+
+####################################################################################################
+
+C_WOL_HOST = 'localhost'
+C_WOL_PORT = 30502
 
 ####################################################################################################
 
@@ -33,7 +40,15 @@ def main():
 ##################################################
 
 if __name__ == "__main__":
-    uvicorn.run("WOL:main", host="0.0.0.0", port=30502, log_level="info")
+    l_Host = os.environ.get('WOL_HOST', C_WOL_HOST)
+    l_Port = os.environ.get('WOL_PORT', C_WOL_PORT)
+
+    try:
+        l_Port = int(l_Port)
+    except ValueError:
+        print(f'''Error: {l_Port} is not a valid port number''')
+
+    uvicorn.run("WOL:main", host=l_Host, port=l_Port, log_level="info")
 
 ####################################################################################################
 
