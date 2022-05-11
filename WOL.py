@@ -1,9 +1,16 @@
 #! python3
 ####################################################################################################
 
+import os
+
 import fastapi
 import uvicorn
 import wakeonlan
+
+####################################################################################################
+
+C_WOL_HOST = 'localhost'
+C_WOL_PORT = 30502
 
 ####################################################################################################
 
@@ -33,7 +40,10 @@ def main():
 ##################################################
 
 if __name__ == "__main__":
-    uvicorn.run("WOL:main", host="0.0.0.0", port=30502, log_level="info")
+    l_Host = os.environ.get('WOL_HOST', C_WOL_HOST)
+    l_Port = int(os.environ.get('WOL_PORT', C_WOL_PORT)) # check if int should go here
+
+    uvicorn.run("WOL:main", host=l_Host, port=l_Port, log_level="info")
 
 ####################################################################################################
 

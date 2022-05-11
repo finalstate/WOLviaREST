@@ -1,3 +1,4 @@
 workspace.code-workspace
 dockerfile-wol
 OpenSource.rst
+__pycache__/
