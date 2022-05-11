@@ -19,7 +19,7 @@ app = fastapi.FastAPI()
 
 ####################################################################################################
 
-@app.get  ( "/WOL/{Mac}",
+@app.get  ( '/WOL/{Mac}',
             status_code    = 204,
             response_class = fastapi.Response
           )
@@ -40,7 +40,7 @@ def main():
 
 ##################################################
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     l_Host = os.environ.get('WOL_HOST', C_WOL_HOST)
     l_Port = os.environ.get('WOL_PORT', C_WOL_PORT)
 
@@ -50,7 +50,7 @@ if __name__ == "__main__":
         print(f'''Error: {l_Port} is not a valid port number''')
         sys.exit(1)
 
-    uvicorn.run("WOL:main", host=l_Host, port=l_Port, log_level="info")
+    uvicorn.run('WOL:main', host=l_Host, port=l_Port, log_level='info')
 
 ####################################################################################################
 
