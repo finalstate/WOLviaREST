@@ -2,6 +2,7 @@
 ####################################################################################################
 
 import os
+import sys
 
 import fastapi
 import uvicorn
@@ -47,6 +48,7 @@ if __name__ == "__main__":
         l_Port = int(l_Port)
     except ValueError:
         print(f'''Error: {l_Port} is not a valid port number''')
+        sys.exit(1)
 
     uvicorn.run("WOL:main", host=l_Host, port=l_Port, log_level="info")
 
