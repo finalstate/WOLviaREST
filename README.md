@@ -4,10 +4,11 @@
 
 You need to have a working python3 installation on your computer.
 
-Additionally, WOLviaREST depends on the following 3 libraries:
+Additionally, WOLviaREST depends on the following 4 libraries:
 
 - fastapi
 - uvicorn
+- pydantic
 - wakeonlan
 
 They can be installed with:
